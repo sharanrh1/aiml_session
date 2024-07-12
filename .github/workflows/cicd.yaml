@@ -1,19 +1,42 @@
+# name: Medical_Expenses
+# on: #trigger the execution
+#   push:
+#     branches: ["main"] #for multiple branches use list method
+#   pull_request:
+#     branches: ["main"]
+
+# permissions:
+#   contents: read
+
+# jobs:
+#   build : #alwasy needs a computation power
+#     runs-on : ubuntu-latest #local machine computation
+
+#     steps: #instructions wil always start from - instructions are nothing but  commands
+#       - users: actions/checkout@v3 #check out market place for later refernce
+#       - name: Set Up Python 3.12
+#         uses: actions/checkout@v3
+#         with:
+#           python-version: "3.12"
+
 name: Medical_Expenses
-on: #trigger the execution
-  push:
-    branches: ["main"] #for multiple branches use list method
-  pull_request:
-    branches: ["main"]
+
+on: 
+    push:
+        branches: ["main"]
+    pull_request:
+        branches: ["main"]
 
 permissions:
-  contents: read
+    contents: read
 
 jobs:
-  build : #alwasy needs a computation power
-    runs-on : ubuntu-latest #local machine computation
-    steps: #instructions wil always start from - instructions are nothing but  commands
-      - users: actions/checkout@v3 #check out market place for later refernce
-      - name: Set Up Python 3.12
-        uses: actions/checkout@v3
-        with:
-          python-version: "3.12"
+    build:
+        runs-on: unbuntu-latest
+
+        steps:
+            - uses: actions/checkout@v3
+            - name: Set Up Python 3.12
+              uses: actions/checkout@v3
+              with:
+                python-version: "3.12"
