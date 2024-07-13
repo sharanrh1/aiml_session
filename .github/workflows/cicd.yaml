@@ -16,10 +16,10 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Set Up Python 3.11
+      - name: Set Up Python 3.12
         uses: actions/setup-python@v3
         with:
-          python-version: "3.11"
+          python-version: "3.12"
 
       - name: Install Dependencies
         run: |
@@ -27,14 +27,14 @@ jobs:
           pip install flake8 pytest
           if [ -f requirements_docker.txt ]; then pip install -r requirements_docker.txt; fi
 
-      - name: Docker Build and Push to Docker Hub
-        run: |
-         docker build -t medical .
-         docker tag medical sharanrh/medical:latest
-         docker login -u ${{secrets.DOCKERHUB_USERNAME}} -p ${{ secrets.DOCKERHUB_TOKEN }}
-         docker push sharanrh/medical:latest
-        env:
-          DOCKER_CLI_ACI: 1
+      # - name: Docker Build and Push to Docker Hub
+      #   run: |
+      #    docker build -t medical .
+      #    docker tag medical sharanrh/medical:latest
+      #    docker login -u ${{secrets.DOCKERHUB_USERNAME}} -p ${{ secrets.DOCKERHUB_TOKEN }}
+      #    docker push sharanrh/medical:latest
+      #   env:
+      #     DOCKER_CLI_ACI: 1
 
       - name: Lint with flake8
         run: |
