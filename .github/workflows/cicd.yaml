@@ -37,8 +37,8 @@ jobs:
       - name: Build Docker Image
         run: |
           docker build -t medical .
-          docker tag medical sharanrh/medical:latest
+          docker tag medical sharanrh1/medical:latest
 
       - name: Push Docker Image
         run: |
-          docker push sharanrh/medical:latest
+          docker push sharanrh1/medical:latest
